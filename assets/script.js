@@ -24,7 +24,7 @@ function referenceTime (hour) {
 
 function saveEvent() {
     work.text = textbox.value;
-    // work.hour = 
+    // work.hour = hours[i]
     events.push(work);
     textarea.value = localStorage.setItem("events", JSON.parse(events));
 }
@@ -32,10 +32,11 @@ function saveEvent() {
 for (var i = 0; i < hours.length; i++) {
 
     var block = document.createElement("div");
-    block.setAttribute("class", "row timeblock");
+    block.setAttribute("class", "row time-block");
 
 
-    // var block = document.querySelectorAll(".timeblock");
+
+    // var block = document.querySelectorAll(".time-block");
     // console.log(block[i]);
     // if (referenceTime(hours[i]) === "present") {
     //     block[i].classList.add("present")
@@ -70,5 +71,5 @@ for (var i = 0; i < hours.length; i++) {
     saveButton.addEventListener("click", saveEvent);
     // saveButton.appendChild(block);
 
-    // console.log(block.classList)
+    console.log(block.classList)
 }
