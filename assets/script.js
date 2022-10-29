@@ -22,26 +22,37 @@ function referenceTime (hour) {
     };
 }
 
-// function saveEvent() {
-//     work.text = textbox.value
-//     work.hour = 
-//     events.push(work);
-//     textarea.value = localStorage.setItem("events", JSON.parse(events));
-// }
+function saveEvent() {
+    work.text = textbox.value;
+    // work.hour = 
+    events.push(work);
+    textarea.value = localStorage.setItem("events", JSON.parse(events));
+}
 
 for (var i = 0; i < hours.length; i++) {
 
-    // var wrapper = document.createElement("div");
-    // wrapper.setAttribute("class", "row timeblock");
-    var block = document.querySelectorAll(".timeblock")
+    var block = document.createElement("div");
+    block.setAttribute("class", "row timeblock");
+
+
+    // var block = document.querySelectorAll(".timeblock");
+    // console.log(block[i]);
+    // if (referenceTime(hours[i]) === "present") {
+    //     block[i].classList.add("present")
+    // } else if (referenceTime(hours[i]) === "past")  {
+    //     block[i].classList.add("past")
+    // } else {
+    //     block[i].classList.add("future")
+    // }
 
     if (referenceTime(hours[i]) === "present") {
-        block[i].classList.add("present")
+        block.classList.add("present")
     } else if (referenceTime(hours[i]) === "past")  {
-        block[i].classList.add("past")
+        block.classList.add("past")
     } else {
-        block[i].classList.add("future")
+        block.classList.add("future")
     }
+
     var hourDisplay = document.createElement("div");
 
     var textbox = document.createElement("textarea");
@@ -49,12 +60,15 @@ for (var i = 0; i < hours.length; i++) {
 
     hourDisplay.setAttribute("class", "hour");
     hourDisplay.textContent = moment(hours[i], "HH").format('h a');
-    block[i].appendChild(hourDisplay);
-    block[i].appendChild(textbox);
-    container.appendChild(block[i]);
+    block.appendChild(hourDisplay);
+    block.appendChild(textbox);
+    container.appendChild(block);
 
-    // var saveButton = document.createElement("button")
-    // saveButton.addEventListener("click", saveEvent)
 
-    console.log(block.classList)
+    var saveButton = document.createElement("button");
+    saveButton.setAttribute("class", "saveBtn");
+    saveButton.addEventListener("click", saveEvent);
+    // saveButton.appendChild(block);
+
+    // console.log(block.classList)
 }
