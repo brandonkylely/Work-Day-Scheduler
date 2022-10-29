@@ -8,17 +8,24 @@ var date = new Date();
 
 function referenceTime (hour) {
     if (date.getHours() === hour) {
-
+        return 1 // present
     } else if (date.getHours() > hour) {
-
+        return 2 //past
     } else {
-
+        return 3 //future
     };
 }
 
 for (var i = 0; i < hours.length; i++) {
     var wrapper = document.createElement("div");
     wrapper.setAttribute("class", "row timeblock");
+    if (referenceTime(hours[i]) === 1) {
+        wrapper.classList.add("present")
+    } else if (referenceTime(hours[i]) === 2)  {
+        wrapper.classList.add("past")
+    } else {
+        wrapper.classList.add("future")
+    }
     var hourDisplay = document.createElement("div");
     var textbox = document.createElement("textarea");
     textbox.setAttribute("class", "description col-md-10");
