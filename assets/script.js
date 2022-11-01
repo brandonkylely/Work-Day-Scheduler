@@ -1,6 +1,6 @@
 var container = document.querySelector(".container");
 // var hours = ["12am", "1am", "2am", "3am", "4am", "5am", "6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm", "9pm", "10pm", "11pm"];
-var hours = [9, 10, 12 ,13, 14, 15, 16, 17,];
+var hours = [9, 10, 11, 12 ,13, 14, 15, 16, 17,];
 var date = new Date();
 // console.log(date)
 // console.log(date.getHours())
@@ -61,9 +61,9 @@ for (var i = 0; i < hours.length; i++) {
 
     textbox.value = localStorage.getItem(hours[i])
 
-    textbox.setAttribute("class", "description col-md-10");
+    textbox.setAttribute("class", "description col-md-10 border border-dark");
     textbox.setAttribute("id", hours[i]);
-    hourDisplay.setAttribute("class", "hour col-1");
+    hourDisplay.setAttribute("class", "hour col-1 border border-dark rounded-left");
     hourDisplay.textContent = moment(hours[i], "HH").format('h a');
     block.appendChild(hourDisplay);
     block.appendChild(textbox);
@@ -71,7 +71,7 @@ for (var i = 0; i < hours.length; i++) {
 
 
     var saveButton = document.createElement("button");
-    saveButton.setAttribute("class", "saveBtn w-100 col-md-1");
+    saveButton.setAttribute("class", "saveBtn col-md-1");
     saveButton.setAttribute("data-id", hours[i]);
     saveButton.innerHTML = `
     <i class="fa-solid fa-floppy-disk"></i>
